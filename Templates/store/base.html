@@ -14,37 +14,46 @@
             integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
             crossorigin="anonymous"></script>
 </head>
-
-<body>
-<header>
+<header class="p-3 mb-3 border-bottom">
     <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">BookStore</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+
+            <a class="navbar-brand" href="#">BOOKSTORE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"></button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Link</a>
+
+                    </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
                             Library
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{% url " store:p roduct_all" %}">All</a></li>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+
                             {% for c in categories %}
-                            <li {% if category.slug== c.slug %}class="selected" {% endif %}>
-                                <a class="dropdown-item" href="{{ c.get_absolute_url }}">{{ c.name|title }}</a>
-                            </li>
+                                <li><a class="dropdown-item" href="#">{{ c.name|title }}</a></li>
                             {% endfor %}
+
                         </ul>
                     </li>
+
+
                 </ul>
+
             </div>
         </div>
+
+
     </nav>
+
 </header>
+<body>
+
 <div id="content">{% block content %} {% endblock %}</div>
 </body>
+
+
 </html>
